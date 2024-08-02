@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: stripe
-    database: raw
+    database: dbt-tutorial
     tables:
       - name: payments
         description: Payment information retrieved from the Stripe API.
