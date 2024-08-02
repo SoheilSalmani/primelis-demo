@@ -1,4 +1,4 @@
-FROM quay.io/astronomer/astro-runtime:11.6.0
+FROM quay.io/astronomer/astro-runtime:11.7.0
 
 # Install dbt in a virtual environment
 RUN python3 -m venv /usr/local/airflow/dbt_venv \
