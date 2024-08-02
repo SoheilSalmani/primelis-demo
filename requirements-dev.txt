@@ -1,0 +1,5 @@
+dbt-snowflake
+pre-commit
+sqlfluff==3.0.7
+shandy-sqlfmt==0.21.3
+ruff==0.5.0

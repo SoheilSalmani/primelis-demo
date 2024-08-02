@@ -1,0 +1,8 @@
+# Outputs (dbt)
+target/
+
+# Packages (dbt)
+dbt_packages/
+
+# Logs (dbt)
+logs/

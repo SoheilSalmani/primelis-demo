@@ -1,0 +1,34 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: check-yaml
+        name: Check YAML files
+    -   id: end-of-file-fixer
+        name: Ensure files end with a newline
+    -   id: trailing-whitespace
+        name: Trim trailing whitespace
+
+  - repo: https://github.com/tconbeer/sqlfmt
+    rev: v0.21.3
+    hooks:
+      - id: sqlfmt
+        name: Format SQL files
+        language_version: python
+        additional_dependencies: ['.[jinjafmt]']
+
+  - repo: https://github.com/sqlfluff/sqlfluff
+    rev: 3.0.7
+    hooks:
+      - id: sqlfluff-lint
+        name: Lint SQL files
+        additional_dependencies: ['dbt-snowflake', 'sqlfluff-templater-dbt']
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.5.0
+    hooks:
+      - id: ruff
+        name: Lint Python files
+        args: ['--fix']
+      - id: ruff-format
+        name: Format Python files

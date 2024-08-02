@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: stripe
+    database: raw
+    tables:
+      - name: payments
+        description: Payment information retrieved from the Stripe API.
+        identifier: payment
+        columns:
+          - name: id
+            tests:
+              - unique
+              - not_null

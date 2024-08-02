@@ -1,0 +1,15 @@
+# Configuration file (direnv)
+/.envrc
+
+# Environment file
+/.env
+
+# Local settings (Airflow)
+airflow_settings.yaml
+
+# Cache folders (Python)
+__pycache__/
+
+# Virtual environments (Python)
+.venv/
+.direnv/

@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: customers
+    description: >
+      Customer information with additional information about their purchasing behavior, such as: their first order date, their most recent order date, etc.
+    columns:
+      - name: customer_id
+        description: Unique identifier for the customer.
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: The customer's first name.
+      - name: last_name
+        description: The customer's last name.
+      - name: first_order_date
+        description: The date of the customer's first order.
+      - name: most_recent_order_date
+        description: The date of the customer's most recent order.
+      - name: number_of_orders
+        description: The number of orders the customer has placed.
+      - name: customer_lifetime_value
+        description: The total value of all orders placed by the customer.

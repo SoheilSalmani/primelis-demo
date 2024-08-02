@@ -1,0 +1,21 @@
+_commit: 9e49d0c
+_src_path: astro-template/
+add_dbt: true
+add_dbt_packages: true
+add_sqlmesh: false
+ci_cd_platform: gitlab
+data_platform: bigquery
+dbt_profile: primelis
+managed_airflow: astronomer
+project_display_name: Primelis
+select_dbt_packages:
+- audit_helper
+- codegen
+- dbt_constraints
+- dbt_date
+- dbt_expectations
+- dbt_project_evaluator
+- dbt_utils
+- elementary
+- snowflake_utils
+use_managed_airflow: true
