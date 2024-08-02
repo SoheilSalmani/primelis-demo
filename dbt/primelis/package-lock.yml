@@ -3,8 +3,6 @@ packages:
     version: 0.12.0
   - package: dbt-labs/codegen
     version: 0.12.1
-  - package: Snowflake-Labs/dbt_constraints
-    version: 0.6.3
   - package: calogica/dbt_date
     version: 0.10.1
   - package: calogica/dbt_expectations
@@ -17,4 +15,4 @@ packages:
     version: 0.15.2
   - package: Montreal-Analytics/snowflake_utils
     version: 0.6.3
-sha1_hash: c057335f713051872f3027922e39dcce563c62e5
+sha1_hash: 3687a46ecd1ed7dbee06720c00e81279a37ab215
