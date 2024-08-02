@@ -3,7 +3,7 @@ from pathlib import Path
 
 from airflow.models.param import Param
 from cosmos import DbtDag, ExecutionConfig, ProfileConfig, ProjectConfig, RenderConfig
-from cosmos.profiles import SnowflakeUserPasswordProfileMapping
+from cosmos.profiles import GoogleCloudServiceAccountDictProfileMapping
 from pendulum import datetime
 
 dbt_project_path = Path("/usr/local/airflow/dbt/primelis/")
@@ -13,10 +13,10 @@ venv_execution_config = ExecutionConfig(
     dbt_executable_path=str(dbt_executable),
 )
 profile_config = ProfileConfig(
-    profile_name="",
+    profile_name="primelis",
     target_name=dbt_target_name,
-    profile_mapping=SnowflakeUserPasswordProfileMapping(
-        conn_id="snowflake_default",
+    profile_mapping=GoogleCloudServiceAccountDictProfileMapping(
+        conn_id="bigquery_default",
     ),
 )
 
@@ -33,7 +33,7 @@ ti_logs_url = "{{ conf.get('webserver', 'BASE_URL') }}/dags/{{ ti.dag_id }}/grid
 dag = DbtDag(
     dag_id="build_all_dbt_models",
     project_config=ProjectConfig(
-        dbt_project_path=dbt_project_path, 
+        dbt_project_path=dbt_project_path,
         dbt_vars={
             "orchestrator": "Airflow",
             "job_name": task_display_name,
@@ -41,11 +41,9 @@ dag = DbtDag(
             "job_url": ti_details_url,
             "job_run_id": run_id,
             "job_run_url": ti_logs_url,
-        }
+        },
     ),
-    render_config=RenderConfig(
-        select=["primelis"]
-    ),
+    render_config=RenderConfig(select=["primelis"]),
     profile_config=profile_config,
     execution_config=venv_execution_config,
     schedule_interval="@daily",
